@@ -1,5 +1,7 @@
 import { Nav } from './Nav'
-import { Campuses, SingleCampus } from './Campuses'
-import { Students, SingleStudent } from './Students'
+import { Campuses, SingleCampus, CreateCampusForm } from './Campuses'
+import { Students, SingleStudent, CreateStudentForm } from './Students'
 
-export { Campuses, SingleCampus, Nav, Students, SingleStudent }
+export { Campuses, SingleCampus, CreateCampusForm,
+  Students, SingleStudent, CreateStudentForm,
+  Nav }

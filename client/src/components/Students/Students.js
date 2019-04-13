@@ -18,6 +18,7 @@ const Students = ({ students, fetchStudents }) => {
 
   return (
     <div>
+      <Link className={'btn btn-primary'} to={'/students/create'}>Add Student</Link>
       <ul>
         {
           students.map(student => (

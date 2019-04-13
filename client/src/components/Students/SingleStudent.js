@@ -16,7 +16,7 @@ const SingleStudent = ({ students, campuses, studentId }) => {
     <div>
       {student.firstName} {student.lastName}: <br />
       {student.imageUrl}<br />
-      <Link to={`/campuses/${campus.id}`}>{campus.name}</Link><br />
+      { campus ? <Link to={`/campuses/${campus.id}`}>{campus.name}</Link> : null }<br />
       {student.email}<br />
       {student.gpa}<br />
     </div>

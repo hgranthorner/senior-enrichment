@@ -18,6 +18,7 @@ const Campuses = ({ campuses, fetchCampuses }) => {
 
   return (
     <div>
+      <Link className={'btn btn-primary'} to={'/campuses/create'}>Add Campus</Link>
       <ul>
         {
           campuses.map(campus => (
