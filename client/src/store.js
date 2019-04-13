@@ -1,4 +1,6 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import axios from 'axios'
 
 // action types
 
@@ -31,6 +33,32 @@ const campuses = (state = [], action) => {
 }
 
 
-const store = createStore(combineReducers({ students, campuses }))
+const store = createStore(
+  combineReducers({ students, campuses }),
+  applyMiddleware(thunkMiddleware)
+)
+
+// thunks
+
+const fetchCampuses = () => {
+  return dispatch => {
+    return axios.get('/api/campuses')
+      .then(res => res.data)
+      .then(campuses => {
+        dispatch(getCampusesCreator(campuses))
+      })
+  }
+}
+
+const fetchStudents = () => {
+  return dispatch => {
+    return axios.get('/api/students')
+      .then(res => res.data)
+      .then(students => {
+        dispatch(getStudentsCreator(students))
+      })
+  }
+}
 
 export default store
+export { fetchCampuses, fetchStudents }

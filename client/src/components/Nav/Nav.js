@@ -1,18 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux'
-
-const mapStateToProps = (state) => {
-  return {}
-}
+import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <div>
-      
-    </div>
+    <nav className={'nav'}>
+      <NavLink className={'nav-link'} to={'/campuses'}>Home</NavLink>
+      <NavLink className={'nav-link'} to={'/students'}>Students</NavLink>
+    </nav>
   )
 }
 
-export default connect(
-  mapStateToProps,
-)(Nav)
+export default Nav

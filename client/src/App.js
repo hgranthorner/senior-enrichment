@@ -8,10 +8,9 @@ const App = () => {
       <Nav />
       <Switch>
         <Route path={'/'} exact render={() => <Redirect to="/home" />} />
-        <Route path={'/home'} exact component={ Home } />
+        <Route path={'/campuses'} exact component={ Home } />
         <Route path={'/students'} exact component={ Students } />
       </Switch>
-
     </Router>
   )
 }
