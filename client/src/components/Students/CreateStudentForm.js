@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { postStudent} from '../../store/store'
+import { postStudent } from '../../store'
 
 const mapDispatchToProps = dispatch => {
   return { postStudent: (student) => dispatch(postStudent(student))}

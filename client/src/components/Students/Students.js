@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fetchStudents } from '../../store'
+import { fetchStudents, deleteStudent } from '../../store'
 
 const mapStateToProps = ({ students }) => {
   return { students }
 }
 
 const mapDispatchToProps = dispatch => {
-  return { fetchStudents: () => dispatch(fetchStudents()) }
+  return {
+    fetchStudents: () => dispatch(fetchStudents()),
+    deleteStudent: (id) => dispatch(deleteStudent(id))
+  }
 }
 
-const Students = ({ students, fetchStudents }) => {
+const Students = ({ students, fetchStudents, deleteStudent }) => {
   useEffect(() => {
     fetchStudents()
   }, [])
@@ -26,6 +29,9 @@ const Students = ({ students, fetchStudents }) => {
               <Link to={`/students/${student.id}`}>
                 {student.firstName}
               </Link>
+              <button className={'btn btn-danger'} type={'button'} onClick={() => deleteStudent(student.id)}>
+                X
+              </button>
             </li>
           ))
         }
