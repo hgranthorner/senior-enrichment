@@ -1,5 +1,5 @@
-import { Home } from './Home'
 import { Nav } from './Nav'
-import { Students } from './Students'
+import { Campuses, SingleCampus } from './Campuses'
+import { Students, SingleStudent } from './Students'
 
-export { Home, Nav, Students }
+export { Campuses, SingleCampus, Nav, Students, SingleStudent }

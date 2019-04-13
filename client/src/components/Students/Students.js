@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
+import { Link } from 'react-router-dom'
 import { fetchStudents } from '../../store'
 
 const mapStateToProps = ({ students }) => {
@@ -10,19 +11,21 @@ const mapDispatchToProps = dispatch => {
   return { fetchStudents: () => dispatch(fetchStudents()) }
 }
 
-const Home = ({ students, fetchStudents }) => {
+const Students = ({ students, fetchStudents }) => {
   useEffect(() => {
     fetchStudents()
-      .then(() => console.log('Fetched students'))
   }, [])
-  console.log(students)
 
   return (
     <div>
       <ul>
         {
           students.map(student => (
-            <li>{student.firstName}</li>
+            <li key={student.id}>
+              <Link to={`/students/${student.id}`}>
+                {student.firstName}
+              </Link>
+            </li>
           ))
         }
       </ul>
@@ -33,4 +36,4 @@ const Home = ({ students, fetchStudents }) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(Students)
