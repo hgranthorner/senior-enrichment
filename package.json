@@ -4,9 +4,16 @@
   "description": "The requirements below are broken into separate **tiers**, which model the way we **recommend you approach the project**. That is, we recommend you complete (or complete the majority of) the requirements in Tier 1 before moving on to Tier 2, and so on. Of course, if you get stuck on a particular feature, we recommend moving on and trying another feature - don't sacrifice the good for the perfect!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "DATABASE_URL=postgresql://localhost/senior-enrichment nodemon server/server.js --ignore client"
   },
   "keywords": [],
   "author": "Grant Horner",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "lorem-ipsum": "^2.0.1",
+    "pg": "^7.9.0",
+    "sequelize": "^5.3.2"
+  }
 }
