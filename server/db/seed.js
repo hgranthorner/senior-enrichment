@@ -11,6 +11,7 @@ const randomCampusName = () => {
 const randomEmail = () => faker.internet.email()
 const randomAddress = () => faker.address.streetAddress()
 const randomGPA = () => (Math.random() * 4).toFixed(2)
+const randomImageUrl = () => faker.image.imageUrl()
 const generateLorem = (count, min, max) => {
   return loremIpsum({
     count,
@@ -26,14 +27,14 @@ Student.belongsTo(Campus)
 module.exports = () => {
   return db.sync({ force: true })
     .then(async() => {
-      const campuses = await Promise.all([
-        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(5, 3, 7) }),
-        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(5, 3, 7) }),
-        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(5, 3, 7) }),
-        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(5, 3, 7) })
+      await Promise.all([
+        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(2, 3, 7), imageUrl: randomImageUrl() }),
+        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(2, 3, 7), imageUrl: randomImageUrl() }),
+        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(2, 3, 7), imageUrl: randomImageUrl() }),
+        Campus.create({ name: randomCampusName(), address: randomAddress(), description: generateLorem(2, 3, 7), imageUrl: randomImageUrl() })
       ])
 
-      const students = await Promise.all([
+      await Promise.all([
         Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
         Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
         Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),

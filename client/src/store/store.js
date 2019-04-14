@@ -10,6 +10,7 @@ const REMOVE_STUDENT = Symbol('redux remove student')
 const GET_CAMPUSES = Symbol('redux get campuses')
 const ADD_CAMPUS = Symbol('redux add campus')
 const REMOVE_CAMPUS = Symbol('redux remove campus')
+const SELECT_PAGE = Symbol('redux select page')
 
 // action creators
 
@@ -19,42 +20,49 @@ const removeStudentCreator = (studentId) => ({ type: REMOVE_STUDENT, studentId }
 const getCampusesCreator = (campuses) => ({ type: GET_CAMPUSES, campuses })
 const addCampusCreator = (campus) => ({ type: ADD_CAMPUS, campus })
 const removeCampusCreator = (campusId) => ({ type: REMOVE_CAMPUS, campusId })
+const selectPageCreator = (page) => ({ type: SELECT_PAGE, page })
 
 // reducers
 
 const students = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case GET_STUDENTS:
       return action.students
     case ADD_STUDENT:
       return [...state, action.student]
     case REMOVE_STUDENT:
       const students = [...state]
-      const newStudents = students.filter(s => s.id !== Number(action.studentId))
-      return newStudents
+      return students.filter(s => s.id !== Number(action.studentId))
     default:
       return state
   }
 }
 
 const campuses = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case GET_CAMPUSES:
       return action.campuses
     case ADD_CAMPUS:
       return [...state, action.campus]
     case REMOVE_CAMPUS:
       const campuses = [...state]
-      const newCampuses = campuses.filter(c => c.id !== Number(action.campusId))
-      return newCampuses
+      return campuses.filter(c => c.id !== Number(action.campusId))
     default:
       return state
   }
 }
 
+const selectedPage = (state = 'Campuses', action) => {
+  switch (action.type) {
+    case SELECT_PAGE:
+      return action.page
+    default:
+      return state
+  }
+}
 
 const store = createStore(
-  combineReducers({ students, campuses }),
+  combineReducers({ students, campuses, selectedPage }),
   applyMiddleware(thunkMiddleware)
 )
 
@@ -109,4 +117,4 @@ const deleteStudent = (studentId) => {
 }
 
 export default store
-export { fetchCampuses, fetchStudents, postCampus, postStudent, deleteCampus, deleteStudent }
+export { fetchCampuses, fetchStudents, postCampus, postStudent, deleteCampus, deleteStudent, selectPageCreator }

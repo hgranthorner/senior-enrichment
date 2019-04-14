@@ -1,0 +1,15 @@
+.campus-list {
+  list-style-type: none;
+}
+
+.container {
+  background-color: white;
+}
+
+.main {
+  background-color: #e4f6e4;
+}
+
+.nav > .active {
+  color: black;
+}
