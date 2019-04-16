@@ -12,6 +12,7 @@ const randomEmail = () => faker.internet.email()
 const randomAddress = () => faker.address.streetAddress()
 const randomGPA = () => (Math.random() * 4).toFixed(2)
 const randomImageUrl = () => faker.image.imageUrl()
+const randomImagePerson = () => faker.image.people()
 const generateLorem = (count, min, max) => {
   return loremIpsum({
     count,
@@ -35,24 +36,24 @@ module.exports = () => {
       ])
 
       await Promise.all([
-        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() }),
-        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA() })
+        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 3, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 4, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 1, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() }),
+        Student.create({ campusId: 2, firstName: randomName().split(' ')[0], lastName: randomName().split(' ')[1], email: randomEmail(), gpa: randomGPA(), imageUrl: randomImagePerson() })
       ])
     })
     .catch(e => console.log(e))

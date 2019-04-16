@@ -1,7 +1,7 @@
 const app = require('./app')
 const { seed } = require('./db')
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 63341
 
 seed()
   .then(() => {

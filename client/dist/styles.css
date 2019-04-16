@@ -1,15 +1,45 @@
-.campus-list {
-  list-style-type: none;
-}
-
 .container {
   background-color: white;
+  min-height: 100vh;
+  background-size: cover;
+}
+
+input {
+  display: block;
+  margin-bottom: .75rem;
 }
 
 .main {
-  background-color: #e4f6e4;
+  background-color: lightgray;
+  min-height: 100vh;
+  background-size: cover;
 }
 
-.nav > .active {
+.margin-bottom-lg {
+  margin-bottom: 3rem;
+}
+
+.margin-bottom-sm {
+  margin-bottom: .75rem;
+}
+
+.nav .active {
   color: black;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.student-picture {
+  margin: auto;
+}
+
+.student-picture-container {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  max-height: 25rem;
+  max-width: 25rem;
+  overflow: hidden;
 }

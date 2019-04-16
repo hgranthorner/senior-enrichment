@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
-import { Link } from 'react-router-dom'
 import { fetchStudents, deleteStudent, selectPageCreator } from '../../store'
+import Student from './Student'
 
 const mapStateToProps = ({ students }) => {
   return { students }
@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const Students = ({ students, fetchStudents, deleteStudent, selectPage }) => {
+const Students = ({ students, fetchStudents, selectPage }) => {
   useEffect(() => {
     selectPage('Students')
     fetchStudents()
@@ -26,14 +26,7 @@ const Students = ({ students, fetchStudents, deleteStudent, selectPage }) => {
       <ul>
         {
           students.map(student => (
-            <li key={student.id}>
-              <Link to={`/students/${student.id}`}>
-                {student.firstName}
-              </Link>
-              <button className={'btn btn-danger'} type={'button'} onClick={() => deleteStudent(student.id)}>
-                X
-              </button>
-            </li>
+            <Student key={student.id} student={student} />
           ))
         }
       </ul>

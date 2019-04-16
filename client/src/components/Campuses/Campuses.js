@@ -22,13 +22,11 @@ const Campuses = ({ campuses, fetchCampuses, selectPage }) => {
 
   return (
     <div>
-      <ul className={'campus-list'}>
-        {
-          campuses.map(campus => (
-            <Campus key={campus.id} campus={campus} />
-          ))
-        }
-      </ul>
+      {
+        campuses.map(campus => (
+          <Campus key={campus.id} campus={campus}/>
+        ))
+      }
     </div>
   )
 }

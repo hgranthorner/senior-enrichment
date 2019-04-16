@@ -1,12 +1,23 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import Campus from './Campus'
+import { Student } from '../Students'
+import { selectPageCreator } from '../../store'
 
 const mapStateToProps = ({ students, campuses }) => {
   return { students, campuses }
 }
 
-const SingleCampus = ({ students, campuses, campusId }) => {
+const mapDispatchToProps = dispatch => {
+  return {
+    selectPage: (page) => dispatch(selectPageCreator(page))
+  }
+}
+
+const SingleCampus = ({ students, campuses, campusId, selectPage }) => {
+  useEffect(() => {
+    selectPage('Campuses')
+  }, [])
   const campus = campuses.find(c => c.id === Number(campusId)) || {}
   let studentsAtCampus
   if (campus)
@@ -14,15 +25,12 @@ const SingleCampus = ({ students, campuses, campusId }) => {
 
   return (
     <div>
-      {campus.name}
+      <Campus campus={campus}/>
+      <h3>Students at {campus.name}</h3>
       <ul>
         {
           studentsAtCampus.map(student => (
-            <li key={student.id}>
-              <Link to={`/students/${student.id}`}>
-                {student.firstName}
-              </Link>
-            </li>
+            <Student key={student.id} student={student}/>
           ))
         }
       </ul>
@@ -32,4 +40,5 @@ const SingleCampus = ({ students, campuses, campusId }) => {
 
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(SingleCampus)

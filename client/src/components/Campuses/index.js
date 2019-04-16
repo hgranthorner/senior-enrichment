@@ -1,5 +1,5 @@
 import Campuses from './Campuses'
 import SingleCampus from './SingleCampus'
-import CreateCampusForm from './CreateCampusForm'
+import CampusForm from './CampusForm'
 
-export { Campuses, SingleCampus, CreateCampusForm }
+export { Campuses, SingleCampus, CampusForm }
