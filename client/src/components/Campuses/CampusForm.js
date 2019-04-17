@@ -48,7 +48,7 @@ const CampusForm = ({ campusId, campuses, postCampus, updateCampus, history }) =
 
   return (
     <div className={'d-flex flex-column align-items-center'}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={'d-flex flex-column align-items-center'}>
         <input
           value={name}
           onChange={e => setName(e.target.value)}
@@ -72,13 +72,15 @@ const CampusForm = ({ campusId, campuses, postCampus, updateCampus, history }) =
           name={'address'}
           required
         />
-        <input
+        <textarea
+          className={'margin-bottom-sm'}
+          rows={5}
           value={description}
           onChange={e => setDescription(e.target.value)}
           placeholder={'Description'}
           type={'text'}
           name={'description'}
-        />
+        ></textarea>
         <div className={'d-flex flex-row justify-content-center'}>
           <button className={'btn btn-primary'} type={'submit'}>
             {

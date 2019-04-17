@@ -4,6 +4,10 @@
   background-size: cover;
 }
 
+form {
+  width: 75%;
+}
+
 input {
   display: block;
   margin-bottom: .75rem;
@@ -36,7 +40,7 @@ input {
 }
 
 .student-picture-container {
-  border-radius: 50%;
+  border-radius: 500%;
   display: flex;
   justify-content: center;
   max-height: 25rem;
